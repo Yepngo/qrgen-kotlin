@@ -139,6 +139,12 @@ public class QrGeneratorTest {
         }
     }
 
+    @Test
+    void generatorCanCreateBufferedImage() throws QrGenerationException {
+        final BufferedImage image = new QrGenerator().writeToImage("https://github.com/aytchell/qrgen");
+        assertNotNull(image);
+    }
+
     void generatePayloadWithLvl(int payloadSize, ErrorCorrectionLevel lvl) throws QrGenerationException, IOException {
         final QrGenerator gen = new QrGenerator()
                 .withErrorCorrection(lvl);
