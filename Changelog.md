@@ -13,6 +13,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ...
 
+## [3.0.1] - 2025-10-30
+
+### Added
+
+- New method `QrGenerator.writeToImage(String)` that returns a `BufferedImage` for a given payload without touching the file system.
+
 ## [3.0.0] - 2025-04-04
 
 ### Added
