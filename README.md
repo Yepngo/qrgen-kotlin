@@ -388,6 +388,20 @@ the "delete on exit" flag set. The method does not change access permissions
 of the created file so most probably (depending on the JRE and the OS) it will
 be readable to anyone with access to the system.
 
+The generated image can also be written directly to an output stream. This is
+useful when the image should be kept in memory or sent in an HTTP response
+without creating a temporary file:
+
+```java
+        final byte[] imageBytes;
+        try (final ByteArrayOutputStream output = new ByteArrayOutputStream()) {
+            generator.writeTo("Hello, World!", output);
+            imageBytes = output.toByteArray();
+        }
+```
+
+The caller is responsible for closing the output stream.
+
 <a name="license"></a>
 ## License
 
