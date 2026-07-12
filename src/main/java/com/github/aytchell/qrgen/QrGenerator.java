@@ -18,6 +18,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -450,6 +451,33 @@ public class QrGenerator implements Cloneable {
             return tmpFile;
         } catch (WriterException e) {
             throw new QrGenerationException("Failed to write QR code to tmp file", e);
+        }
+    }
+
+    /**
+     * Creates a QR code with the given configuration and payload
+     * <p>
+     * This method takes the configuration collected up to here (by using
+     * the other methods) and a payload string and outputs it to an {@link java.io.OutputStream}
+     * containing a QR code.
+     * <p>
+     *
+     * @param payload the {@link java.lang.String} to be encoded into a QR code
+     * @param output  the {@link java.io.OutputStream} to which the QR code image will be written
+     * @throws QrGenerationException thrown in case the computation of the
+     *                               QR code goes wrong.
+     * @throws IOException thrown in case something goes wrong while writing
+     *                     the image to the output stream
+     */
+    public void writeTo(String payload, OutputStream output)
+            throws IOException, QrGenerationException {
+        try {
+            BufferedImage image = generateImage(payload);
+            if (!ImageIO.write(image, imageType.name(), output)) {
+                throw new IOException("No ImageIO writer available for " + imageType.name());
+            }
+        } catch (WriterException e) {
+            throw new QrGenerationException("Failed to generate QR code", e);
         }
     }
 
