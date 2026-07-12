@@ -453,6 +453,31 @@ public class QrGenerator implements Cloneable {
         }
     }
 
+    /**
+     * Actually create a QR code with the given configuration and payload
+     * <p>
+     * This method takes the configuration collected up to here (by using
+     * the other methods) and a payload string and creates a {@link BufferedImage}
+     * containing a QR code.
+     * <p>
+     * Note that calling this method does not change the configuration.
+     * So you can keep the instance and generate more QR codes without
+     * repeating the configuration steps.
+     *
+     * @param payload the string to be encoded into a QR code
+     * @return a {@link BufferedImage} containing the generated QR code
+     * @throws QrGenerationException thrown in case the computation of the
+     *                               QR code goes wrong.
+     */
+    public BufferedImage writeToImage(String payload)
+            throws QrGenerationException {
+        try {
+            return generateImage(payload);
+        } catch (WriterException e) {
+            throw new QrGenerationException("Failed to write QR code to Image", e);
+        }
+    }
+
     private void writeQrCodeToFile(Path tmpFile, String payload)
             throws WriterException, IOException {
         final BufferedImage image = generateImage(payload);
