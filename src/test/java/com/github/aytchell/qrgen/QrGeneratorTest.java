@@ -9,7 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -143,6 +146,23 @@ public class QrGeneratorTest {
     void generatorCanCreateBufferedImage() throws QrGenerationException {
         final BufferedImage image = new QrGenerator().writeToImage("https://github.com/aytchell/qrgen");
         assertNotNull(image);
+    }
+
+    @Test
+    void generatorCanWriteToOutputStream() throws IOException, QrGenerationException, QrConfigurationException {
+        final int size = 300;
+        final ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+        new QrGenerator()
+                .as(ImageFileType.PNG)
+                .withSize(size, size)
+                .writeTo("https://github.com/aytchell/qrgen", output);
+
+        assertTrue(output.size() > 0);
+        final BufferedImage image = ImageIO.read(new ByteArrayInputStream(output.toByteArray()));
+        assertNotNull(image);
+        assertEquals(size, image.getWidth());
+        assertEquals(size, image.getHeight());
     }
 
     void generatePayloadWithLvl(int payloadSize, ErrorCorrectionLevel lvl) throws QrGenerationException, IOException {
