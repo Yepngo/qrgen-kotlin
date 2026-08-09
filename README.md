@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.yepngo:qrgen:5.0.0")
+    implementation("com.github.Yepngo:qrgen:5.0.1")
 }
 ```
 
@@ -31,9 +31,9 @@ Maven:
     <url>https://jitpack.io</url>
 </repository>
 <dependency>
-    <groupId>com.github.yepngo</groupId>
+    <groupId>com.github.Yepngo</groupId>
     <artifactId>qrgen</artifactId>
-    <version>5.0.0</version>
+    <version>5.0.1</version>
 </dependency>
 ```
 

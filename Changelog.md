@@ -10,6 +10,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ...
 
+## [5.0.1] - 2026-08-10
+
+### Fixed
+
+- Configured JitPack to build with Java 17 and documented the canonical
+  case-sensitive `com.github.Yepngo` dependency coordinate.
+
 ## [5.0.0] - 2026-08-09
 
 ### Added
