@@ -1,0 +1,41 @@
+complexity:
+  ComplexCondition:
+    active: false
+  CyclomaticComplexMethod:
+    active: false
+  LargeClass:
+    active: false
+  LongMethod:
+    active: false
+  TooManyFunctions:
+    active: false
+
+empty-blocks:
+  EmptyDefaultConstructor:
+    active: false
+
+exceptions:
+  SwallowedException:
+    active: false
+  ThrowingExceptionsWithoutMessageOrCause:
+    active: false
+  TooGenericExceptionCaught:
+    active: false
+  TooGenericExceptionThrown:
+    active: false
+
+naming:
+  FunctionNaming:
+    active: false
+
+style:
+  MagicNumber:
+    active: false
+  MaxLineLength:
+    active: false
+  MayBeConstant:
+    active: false
+  ReturnCount:
+    active: false
+  ThrowsCount:
+    active: false

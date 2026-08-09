@@ -1,8 +1,5 @@
 # Changelog
 
-This application is the main (and at least for the MVP the only) backend of
-the blackpin messenger. It is written in Java / Spring Boot.
-
 All notable changes to this project will be documented in this file.
 
 The format is based on
@@ -12,6 +9,34 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 - ...
+
+## [5.0.0] - 2026-08-09
+
+### Added
+
+- Added the Kotlin `qrGenerator {}` DSL and immutable, reusable configured
+  generators.
+- Added `Result`-based `render`, `write`, and `writeTemp` output operations.
+- Added the immutable `QrColor` type with RGB, RGBA, ARGB, HSL, and HSLA
+  factories.
+- Added payload capacity metadata to `ErrorCorrectionLevel`.
+
+### Changed
+
+- Rewrote all production and test sources in Kotlin and moved them to the
+  conventional Kotlin source directories.
+- Made rendering invocation-local and defensively copied configured logos for
+  safe concurrent reuse.
+- Raised the minimum runtime to Java 17 and added `kotlin-stdlib` as a runtime
+  dependency.
+- Replaced Javadoc generation with Dokka and bound ktlint and Detekt to the
+  Maven `verify` lifecycle.
+
+### Removed
+
+- Removed the mutable Java fluent API, cloning, legacy color hierarchy, and
+  standalone generator payload constants.
+- Removed `module-info.java` and JPMS support.
 
 ## [4.0.0] - 2026-08-09
 
