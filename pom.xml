@@ -6,7 +6,7 @@
 
     <groupId>com.yepngo</groupId>
     <artifactId>qrgen</artifactId>
-    <version>5.0.1</version>
+    <version>5.0.2</version>
     <packaging>jar</packaging>
 
     <name>QR code generator</name>
@@ -260,6 +260,7 @@
                         </goals>
                         <configuration>
                             <mainClass>dev.detekt.cli.Main</mainClass>
+                            <blockSystemExit>true</blockSystemExit>
                             <includeProjectDependencies>false</includeProjectDependencies>
                             <includePluginDependencies>true</includePluginDependencies>
                             <arguments>

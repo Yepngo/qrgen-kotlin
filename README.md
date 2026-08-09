@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.Yepngo:qrgen:5.0.1")
+    implementation("com.github.Yepngo:qrgen:5.0.2")
 }
 ```
 
@@ -33,7 +33,7 @@ Maven:
 <dependency>
     <groupId>com.github.Yepngo</groupId>
     <artifactId>qrgen</artifactId>
-    <version>5.0.1</version>
+    <version>5.0.2</version>
 </dependency>
 ```
 

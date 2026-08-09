@@ -10,6 +10,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ...
 
+## [5.0.2] - 2026-08-10
+
+### Fixed
+
+- Prevented Detekt's successful process exit from terminating Maven before
+  the `install` phase, allowing JitPack to collect the built artifacts.
+
 ## [5.0.1] - 2026-08-10
 
 ### Fixed
