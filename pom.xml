@@ -4,18 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.aytchell</groupId>
+    <groupId>com.yepngo</groupId>
     <artifactId>qrgen</artifactId>
-    <version>3.0.1</version>
+    <version>4.0.0</version>
     <packaging>jar</packaging>
 
     <name>QR code generator</name>
     <description>
         This package contains a class QrGenerator which is able to generate
-        QR codes. It is only a thin layer on top of ZXing but reliefs you
-        from creating the actual image files.
+        QR codes. It contains a focused QR encoder and creates the actual
+        image files without runtime dependencies.
     </description>
-    <url>https://github.com/aytchell/qrgen</url>
+    <url>https://github.com/Yepngo/qrgen</url>
 
     <licenses>
         <license>
@@ -45,10 +45,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/aytchell/qrgen.git</connection>
-        <developerConnection>scm:git:https://github.com/aytchell/qrgen.git</developerConnection>
-        <url>https://github.com/aytchell/qrgen/tree/master</url>
-        <tag>releases/2.0.1</tag>
+        <connection>scm:git:git://github.com/Yepngo/qrgen.git</connection>
+        <developerConnection>scm:git:https://github.com/Yepngo/qrgen.git</developerConnection>
+        <url>https://github.com/Yepngo/qrgen/tree/main</url>
     </scm>
 
     <distributionManagement>
@@ -63,8 +62,6 @@
         <maven.compiler.source>9</maven.compiler.source>
         <maven.compiler.target>9</maven.compiler.target>
         <maven.compiler.release>9</maven.compiler.release>
-
-        <zxing.version>3.5.3</zxing.version>
 
         <junit-jupiter.version>5.12.1</junit-jupiter.version>
         <junit-platform-launcher.version>1.12.1</junit-platform-launcher.version>
@@ -93,16 +90,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>javase</artifactId>
-            <version>${zxing.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>core</artifactId>
-            <version>${zxing.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
@@ -116,6 +103,16 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <targetPath>META-INF</targetPath>
+                <includes>
+                    <include>LICENSE</include>
+                    <include>THIRD_PARTY_NOTICES.md</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -141,11 +138,11 @@
                 </executions>
                 <configuration>
                     <excludePackageNames>
-                        com.github.aytchell.qrgen.renderers,
-                        com.github.aytchell.qrgen.renderers.common,
-                        com.github.aytchell.qrgen.renderers.marker,
-                        com.github.aytchell.qrgen.renderers.pixel,
-                        com.github.aytchell.qrgen.utils
+                        com.yepngo.qrgen.renderers,
+                        com.yepngo.qrgen.renderers.common,
+                        com.yepngo.qrgen.renderers.marker,
+                        com.yepngo.qrgen.renderers.pixel,
+                        com.yepngo.qrgen.utils
                     </excludePackageNames>
                 </configuration>
             </plugin>

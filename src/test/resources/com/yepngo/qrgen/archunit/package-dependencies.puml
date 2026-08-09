@@ -1,0 +1,35 @@
+@startuml
+
+[qrgen] <<com.yepngo.qrgen>>
+[qrgen_utils] <<com.yepngo.qrgen.utils>>
+[config] <<com.yepngo.qrgen.config>>
+[colors] <<com.yepngo.qrgen.colors>>
+[exceptions] <<com.yepngo.qrgen.exceptions>>
+[renderers] <<com.yepngo.qrgen.renderers>>
+[render_common] <<com.yepngo.qrgen.renderers.common>>
+[marker] <<com.yepngo.qrgen.renderers.marker>>
+[pixel] <<com.yepngo.qrgen.renderers.pixel>>
+[encoder] <<com.yepngo.qrgen.internal.zxing..>>
+
+qrgen --> config
+qrgen --> colors
+qrgen --> renderers
+qrgen --> exceptions
+qrgen --> qrgen_utils
+qrgen --> encoder
+renderers --> marker
+renderers --> pixel
+renderers --> config
+renderers --> render_common
+renderers --> qrgen_utils
+renderers --> encoder
+marker --> render_common
+marker --> config
+pixel --> render_common
+pixel --> config
+pixel --> encoder
+render_common --> qrgen_utils
+qrgen_utils --> colors
+colors --> exceptions
+
+@enduml

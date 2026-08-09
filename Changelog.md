@@ -13,6 +13,20 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ...
 
+## [4.0.0] - 2026-08-09
+
+### Changed
+
+- Embedded and relocated the QR-generation subset derived from ZXing 3.5.3,
+  so the library no longer has runtime dependencies.
+- Moved the library's Java packages from `com.github.aytchell.qrgen` to
+  `com.yepngo.qrgen` for the Yepngo fork.
+
+### Removed
+
+- Removed `ErrorCorrectionLevel.getZxingLevel()`, which exposed an internal
+  implementation type.
+
 ## [3.0.1] - 2025-10-30
 
 ### Added

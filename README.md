@@ -1,9 +1,15 @@
 # QR code generator
 
-This library provides a class which is capable of generating QR codes. It is 
-a layer on top of the [ZXing](https://github.com/zxing/zxing) generator
-which does the heavily lifting of actually computing the dot matrix. This
-lib then adds the functionality to make image files.
+This library provides a class which is capable of generating QR codes. It
+contains the QR-generation subset derived from
+[ZXing 3.5.3](https://github.com/zxing/zxing/tree/zxing-3.5.3), which computes
+the dot matrix. The library then adds the functionality to make image files.
+It has no runtime dependencies. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
+for attribution and licensing details.
+
+This repository is the Yepngo fork of the original
+[aytchell/qrgen](https://github.com/aytchell/qrgen) project. Version 4 uses
+the Java package namespace `com.yepngo.qrgen`.
 
 This lib is inspired by [QRGen](http://kenglxn.github.io/QRGen/).
 But since I'd like to have some structural changes plus more variations when
@@ -60,9 +66,9 @@ module.
 
 ```xml
     <dependency>
-        <groupId>com.github.aytchell</groupId>
+        <groupId>com.github.yepngo</groupId>
         <artifactId>qrgen</artifactId>
-        <version>3.0.0</version>
+        <version>4.0.0</version>
     </dependency>
 ```
 
@@ -70,12 +76,12 @@ module.
 
 Groovy syntax:
 ```groovy
-    implementation 'com.github.aytchell:qrgen:3.0.0'
+    implementation 'com.github.yepngo:qrgen:4.0.0'
 ```
 
 Kotlin syntax
 ```kotlin
-    implementation("com.github.aytchell:qrgen:3.0.0")
+    implementation("com.github.yepngo:qrgen:4.0.0")
 ```
 
 <a name="configuration"></a>
