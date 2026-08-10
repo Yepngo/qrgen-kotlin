@@ -6,7 +6,7 @@
 
     <groupId>com.yepngo</groupId>
     <artifactId>qrgen</artifactId>
-    <version>5.0.2</version>
+    <version>5.0.3</version>
     <packaging>jar</packaging>
 
     <name>QR code generator</name>

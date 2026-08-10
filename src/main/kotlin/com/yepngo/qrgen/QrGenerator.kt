@@ -232,6 +232,7 @@ private fun BufferedImage.withLogo(logo: BufferedImage): BufferedImage {
     output.createGraphics().useGraphics { graphics ->
         graphics.composite = AlphaComposite.Src
         graphics.drawImage(this, (outputWidth - width) / 2, (outputHeight - height) / 2, null)
+        graphics.composite = AlphaComposite.SrcOver
         graphics.drawImage(logo, (outputWidth - logo.width) / 2, (outputHeight - logo.height) / 2, null)
     }
     return output

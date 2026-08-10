@@ -10,6 +10,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ...
 
+## [5.0.3] - 2026-08-10
+
+### Fixed
+
+- Preserved the QR code beneath transparent logo pixels instead of clearing
+  them, preventing transparent logo backgrounds from rendering as black.
+
 ## [5.0.2] - 2026-08-10
 
 ### Fixed

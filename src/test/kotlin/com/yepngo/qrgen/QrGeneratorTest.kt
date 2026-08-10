@@ -158,6 +158,22 @@ class QrGeneratorTest {
     }
 
     @Test
+    fun transparentLogoPixelsPreserveQrCode() {
+        val payload = "transparent logo"
+        val baseline = qrGenerator().render(payload).getOrThrow()
+        val logo =
+            BufferedImage(8, 8, BufferedImage.TYPE_INT_ARGB).apply {
+                setRGB(width / 2, height / 2, Color.MAGENTA.rgb)
+            }
+        val rendered = qrGenerator { logo(logo) }.render(payload).getOrThrow()
+        val logoLeft = (rendered.width - logo.width) / 2
+        val logoTop = (rendered.height - logo.height) / 2
+
+        assertEquals(baseline.getRGB(logoLeft, logoTop), rendered.getRGB(logoLeft, logoTop))
+        assertEquals(Color.MAGENTA.rgb, rendered.getRGB(rendered.width / 2, rendered.height / 2))
+    }
+
+    @Test
     fun inputStreamLogoIsDecodedWithoutClosingCallerStream() {
         val bytes = logoBytes()
         val input = TrackingInputStream(bytes)
