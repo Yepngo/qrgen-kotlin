@@ -1,4 +1,4 @@
-# QR code generator
+# Kotlin QR code generator
 
 qrgen is a Kotlin-first QR image generator with configurable colors, module
 styles, position-marker styles, and optional logo overlays. It embeds the
