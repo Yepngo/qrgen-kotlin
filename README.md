@@ -9,6 +9,8 @@ QR-generation subset derived from
 Version 5.0.0 is an intentionally breaking Kotlin rewrite. It requires Java
 17, depends on `kotlin-stdlib`, and no longer provides a JPMS module descriptor.
 
+If you're looking for a Java version, this repository was initially forked from https://github.com/aytchell/qrgen.
+
 ## Dependency
 
 The Yepngo fork is available through JitPack:
